@@ -29,6 +29,7 @@ namespace cell {
 		bool get_populated();
 
 		Cell(x_y_position cell_position_, int window_x_pos, int window_y_pos);
+		Cell();
 
 	};
 }
