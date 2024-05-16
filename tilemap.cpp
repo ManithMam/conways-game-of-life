@@ -2,7 +2,7 @@
 #include <iostream>
 
 //Load Cells into std::vector 
-void Tilemap::load_map_vector(int window_size_x, int window_size_y) {
+void tmap::Tilemap::load_map_vector(int window_size_x, int window_size_y) {
 	std::cout << "load vector" << '\n';
 
 	cell::x_y_position cell_position;
@@ -32,13 +32,13 @@ void Tilemap::load_map_vector(int window_size_x, int window_size_y) {
 	}
 }
 
-Tilemap::Tilemap(sf::RenderTarget& window) :  map() {
+tmap::Tilemap::Tilemap(sf::RenderTarget& window) :  map() {
 
 	load_map_vector(window.getSize().x, window.getSize().y);
 }
 
 //Iterate through Cells in std::vector to draw 
-void Tilemap::draw_map(sf::RenderTarget& window) {	
+void tmap::Tilemap::draw_map(sf::RenderTarget& window) {
 
 	for(int x = 0; x < this->map.size(); x++) {
 		for (int y = 0; y < this->map[x].size(); y++) {

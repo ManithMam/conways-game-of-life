@@ -7,19 +7,22 @@
 #include "cell.hpp"
 #include <iostream>
 
-class Tilemap {
+namespace tmap {
 
-	private:		
-		
-		std::vector<std::vector<cell::Cell>> map;		
+	class Tilemap {
 
-		void load_map_vector(int window_size_x, int window_size_y);		
+	private:
 
-	public:		
+		std::vector<std::vector<cell::Cell>> map;
 
-		void draw_map(sf::RenderTarget& window);	
+		void load_map_vector(int window_size_x, int window_size_y);
+
+	public:
+
+		void draw_map(sf::RenderTarget& window);
 
 		Tilemap(sf::RenderTarget& window);
-};
+	};
 
+}
 #endif

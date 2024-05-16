@@ -9,7 +9,7 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(1000, 800), "Conway's Game of Life");
 	sf::Vector2u window_size = window.getSize();		
 
-	Tilemap map(window);	
+	tmap::Tilemap map(window);
 
 	while (window.isOpen())
 	{
