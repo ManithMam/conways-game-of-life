@@ -16,7 +16,7 @@ namespace cell {
 	private:
 
 		bool populated;
-		sf::Color color;
+		sf::Color unpopulated_color;
 		sf::Color populated_color;
 		x_y_position cell_position;
 
