@@ -3,13 +3,17 @@
 #include<iostream>
 #include "cell.hpp"
 #include "tilemap.hpp"
+#include "cell_controller.hpp"
 
 int main() {
 
 	sf::RenderWindow window(sf::VideoMode(1000, 800), "Conway's Game of Life");
-	sf::Vector2u window_size = window.getSize();		
+
+	window.setSize(sf::Vector2u(1000, 800));			
 
 	tmap::Tilemap map(window);
+	
+	cell_ctr::Cell_Controller controller;	
 
 	while (window.isOpen())
 	{
@@ -21,7 +25,18 @@ int main() {
 			}				
 		}		
 
-		window.display();			
+		window.display();		
+
+		
+		if (event.type == sf::Event::MouseButtonPressed) {
+			if (event.mouseButton.button == sf::Mouse::Left) {
+
+				int x = event.mouseButton.x;
+				int y = event.mouseButton.y;				
+
+				controller.cell_click(map.get_vector_map(), x, y);
+			}
+		}
 		
 		map.draw_map(window);		
 
