@@ -16,6 +16,4 @@ namespace cell_ctr {
 	};
 }
 
-
-
 #endif 
