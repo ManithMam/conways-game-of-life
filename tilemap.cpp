@@ -5,7 +5,7 @@
 void tmap::Tilemap::load_map_vector(int window_size_x, int window_size_y) {
 	std::cout << "load vector" << '\n';
 
-	cell::x_y_position cell_position;
+	cell::x_y_position cell_position;	
 
 	int cell_pos_x = 0;	
 
@@ -13,7 +13,7 @@ void tmap::Tilemap::load_map_vector(int window_size_x, int window_size_y) {
 
 		int cell_pos_y = 0;
 		cell_position.x_position = cell_pos_x;
-		std::cout << "inside x: " << cell_position.x_position << '\n';
+		
 		cell_pos_x++;
 
 		std::vector<cell::Cell> cell_vector;
@@ -23,7 +23,7 @@ void tmap::Tilemap::load_map_vector(int window_size_x, int window_size_y) {
 			
 			cell_position.y_position = cell_pos_y;
 			cell::Cell cell_(cell_position, x, y);
-			std::cout << "inside y: " << cell_position.x_position << " | " << cell_position.y_position << '\n';
+			
 			this->map[cell_position.x_position].push_back(cell_);
 			
 			cell_pos_y++;		
@@ -45,4 +45,8 @@ void tmap::Tilemap::draw_map(sf::RenderTarget& window) {
 			window.draw(this->map[x][y]);
 		}
 	} 
+}
+
+std::vector<std::vector<cell::Cell>>& tmap::Tilemap::get_vector_map() {
+	return this->map;
 }

@@ -20,6 +20,7 @@ namespace tmap {
 	public:
 
 		void draw_map(sf::RenderTarget& window);
+		std::vector<std::vector<cell::Cell>>&  get_vector_map();
 
 		Tilemap(sf::RenderTarget& window);
 	};
