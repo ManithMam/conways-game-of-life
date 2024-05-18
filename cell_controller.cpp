@@ -37,3 +37,67 @@ void cell_ctr::Cell_Controller::cell_click(std::vector<std::vector<cell::Cell>>&
 	}
 
 }
+
+void calculate_neighbour_count(int& neigbours, std::vector<std::vector<cell::Cell>>& cells, const cell::neigbouring_positions& pos) {	
+
+	if (cells[pos.upper_left.x_position][pos.upper_left.y_position].get_populated() == true) {
+		neigbours++;
+	}
+
+	if (cells[pos.above.x_position][pos.above.y_position].get_populated() == true) {
+		neigbours++;
+	}
+
+	if (cells[pos.upper_right.x_position][pos.upper_right.y_position].get_populated() == true) {
+		neigbours++;
+	}
+
+	if (cells[pos.left.x_position][pos.left.y_position].get_populated() == true) {
+		neigbours++;
+	}
+
+	if (cells[pos.right.x_position][pos.right.y_position].get_populated() == true) {
+		neigbours++;
+	}
+
+	if (cells[pos.lower_left.x_position][pos.lower_left.y_position].get_populated() == true) {
+		neigbours++;
+	}
+
+	if (cells[pos.below.x_position][pos.below.y_position].get_populated() == true) {
+		neigbours++;
+	}
+
+	if (cells[pos.lower_right.x_position][pos.lower_right.y_position].get_populated() == true) {
+		neigbours++;
+	}
+
+}
+
+
+void set_cell_neighbourcount(cell::Cell& cell, std::vector<std::vector<cell::Cell>>& cells, const cell::neigbouring_positions& neighbour_pos) {
+
+	int neighbours_amount = 0;
+
+	if (cell.get_populated() == true) {
+		
+		calculate_neighbour_count(neighbours_amount, cells, neighbour_pos);
+
+	}
+
+	cell.set_num_of_neighbours(neighbours_amount);
+
+}
+
+void cell_ctr::Cell_Controller::check_neighbours(std::vector<std::vector<cell::Cell>>& cells) {
+
+	for (int i = 0; i < cells.size(); i++) {
+		for (int t = 0; t < cells[i].size(); t++) {
+			cell::Cell cell = cells[i][t];
+			cell::neigbouring_positions neighbour_pos = cell.get_neighbour_pos();	
+
+			set_cell_neighbourcount(cell, cells, neighbour_pos);
+		}
+	}
+
+}
