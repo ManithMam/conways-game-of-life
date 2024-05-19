@@ -8,7 +8,15 @@ namespace cell {
 
 	struct x_y_position {
 		int x_position;
-		int y_position;
+		int y_position;		
+	};
+
+	struct x_y_comp
+	{
+		bool operator() (x_y_position a, x_y_position b) const
+		{
+			return std::make_pair(a.x_position, a.y_position) > std::make_pair(b.x_position, b.y_position);
+		}
 	};
 
 	struct screen_boundary {
@@ -43,15 +51,14 @@ namespace cell {
 		int num_of_neigbours;
 		neigbouring_positions neighbour_positions;
 
-		void set_populated();
-		void set_unpopulated();
-		
-		
+			
 
 	public:
 		
+		void set_populated();
+		void set_unpopulated();
 		void set_num_of_neighbours(int neigbours);
-		void set_state();
+		void switch_state();
 
 		x_y_position get_position();
 		bool get_populated();
@@ -59,6 +66,7 @@ namespace cell {
 		screen_boundary get_screen_boundary_x();
 		screen_boundary get_screen_boundary_y();
 		neigbouring_positions get_neighbour_pos() const;
+		int get_num_of_neighbours();
 
 		Cell(x_y_position cell_position_, int window_x_pos, int window_y_pos);
 		Cell();

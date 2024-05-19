@@ -43,7 +43,7 @@ void cell::Cell::set_unpopulated() {
 	this->setFillColor(unpopulated_color);
 }
 
-void cell::Cell::set_state() {	
+void cell::Cell::switch_state() {
 
 	switch (populated) {
 		case true:
@@ -77,6 +77,10 @@ cell::screen_boundary cell::Cell::get_screen_boundary_y() {
 
 cell::neigbouring_positions cell::Cell::get_neighbour_pos() const{
 	return this->neighbour_positions;
+}
+
+int cell::Cell::get_num_of_neighbours() {
+	return this->num_of_neigbours;
 }
 
 
