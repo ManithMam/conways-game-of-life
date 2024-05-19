@@ -11,7 +11,7 @@ int main() {
 
 	tmap::Tilemap map(window);
 	
-	cell_ctr::Cell_Controller controller;	
+	cell_ctr::Cell_Controller controller;		
 
 	while (window.isOpen())
 	{
@@ -20,24 +20,28 @@ int main() {
 		{
 			if (event.type == sf::Event::Closed) {
 				window.close();
-			}				
-		}		
+			}						
 
-		window.display();		
+ 			if (event.type == sf::Event::MouseButtonPressed) {
+				if (event.mouseButton.button == sf::Mouse::Left) {
 
-		
-		if (event.type == sf::Event::MouseButtonPressed) {
-			if (event.mouseButton.button == sf::Mouse::Left) {
+					int x = event.mouseButton.x;
+					int y = event.mouseButton.y;
 
-				int x = event.mouseButton.x;
-				int y = event.mouseButton.y;				
-
-				controller.cell_click(map.get_vector_map(), x, y);
+					controller.cell_click(map.get_vector_map(), x, y);
+				}
 			}
-		}
-		
-		map.draw_map(window);		
 
+			if (event.type == sf::Event::KeyReleased) {
+				std::cout << "Works!" << '\n';
+				controller.check_neighbours(map.get_vector_map());
+			}
+		}				
+
+		window.display();				
+		
+		map.draw_map(window);	
+		
 	}
 
 	return 0;
