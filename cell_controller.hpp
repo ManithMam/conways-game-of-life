@@ -1,5 +1,4 @@
-#ifndef CELL_CONTROLLER_H
-#define CELL_CONTROLLER_H
+#pragma once
 
 #include "tilemap.hpp"
 #include "cell.hpp"
@@ -18,4 +17,3 @@ namespace cell_ctr {
 	};
 }
 
-#endif 

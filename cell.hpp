@@ -1,5 +1,4 @@
-#ifndef CELL_H
-#define CELL_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -74,5 +73,5 @@ namespace cell {
 	};
 }
 
-#endif
+
 

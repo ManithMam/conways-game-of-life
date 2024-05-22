@@ -1,5 +1,4 @@
-#ifndef GAME_CONTROLLER_H
-#define GAME_CONTROLLER_H
+#pragma once
 
 #include "cell_controller.hpp"
 #include <windows.h>
@@ -22,5 +21,4 @@ class Game_Controller {
 		Game_Controller();
 };
 
-#endif 
 

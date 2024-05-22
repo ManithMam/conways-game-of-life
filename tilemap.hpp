@@ -1,5 +1,4 @@
-#ifndef TILEMAP_H
-#define TILEMAP_H
+#pragma once
 
 #include <vector>
 #include "cell.hpp"
@@ -26,4 +25,3 @@ namespace tmap {
 	};
 
 }
-#endif
