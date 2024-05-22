@@ -1,7 +1,6 @@
 #include "tilemap.hpp"
-#include <iostream>
 
-//Load Cells into std::vector 
+
 void tmap::Tilemap::load_map_vector(int window_size_x, int window_size_y) {
 	std::cout << "load vector" << '\n';
 
@@ -37,7 +36,6 @@ tmap::Tilemap::Tilemap(sf::RenderTarget& window) :  map() {
 	load_map_vector(window.getSize().x, window.getSize().y);
 }
 
-//Iterate through Cells in std::vector to draw 
 void tmap::Tilemap::draw_map(sf::RenderTarget& window) {
 
 	for(int x = 0; x < this->map.size(); x++) {
