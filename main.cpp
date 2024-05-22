@@ -1,43 +1,32 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include<iostream>
+
 #include "cell.hpp"
 #include "tilemap.hpp"
 #include "cell_controller.hpp"
+#include "game_controller.hpp"
+#include "app.hpp"
+
 
 int main() {
 
-	sf::RenderWindow window(sf::VideoMode(1000, 800), "Conway's Game of Life", sf::Style::Close);		
+	app::App app;
 
-	tmap::Tilemap map(window);
+	tmap::Tilemap map(app.window);
 	
-	cell_ctr::Cell_Controller controller;	
+	cell_ctr::Cell_Controller cell_controller;	
 
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed) {
-				window.close();
-			}				
-		}		
+	game_ctr::Game_Controller game_ctr;		
 
-		window.display();		
+	while (app.window.isOpen())	{			
 
+		app.poll_events(game_ctr, cell_controller, map);		
+
+		app.game_loop(game_ctr, cell_controller, map);
+
+		app.display_screen(map);			
 		
-		if (event.type == sf::Event::MouseButtonPressed) {
-			if (event.mouseButton.button == sf::Mouse::Left) {
-
-				int x = event.mouseButton.x;
-				int y = event.mouseButton.y;				
-
-				controller.cell_click(map.get_vector_map(), x, y);
-			}
-		}
-		
-		map.draw_map(window);		
-
 	}
 
 	return 0;
