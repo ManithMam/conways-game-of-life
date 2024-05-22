@@ -1,6 +1,6 @@
 #include "cell_controller.hpp"
 
-bool mouse_on_cell(cell::screen_boundary boundary_x, cell::screen_boundary boundary_y, int mouse_pos_x, int mouse_pos_y) {
+bool cell_ctr::Cell_Controller::mouse_on_cell(cell::screen_boundary boundary_x, cell::screen_boundary boundary_y, int mouse_pos_x, int mouse_pos_y) {
 
 	bool between_x = false;
 	bool between_y = false;
@@ -39,7 +39,7 @@ void cell_ctr::Cell_Controller::cell_click(std::vector<std::vector<cell::Cell>>&
 
 }
 
-void calculate_neighbour_count(int& neigbours, const cell::neigbouring_positions& pos, std::map<cell::x_y_position, cell::Cell, cell::x_y_comp>& populated_cells) {
+void cell_ctr::Cell_Controller::calculate_neighbour_count(int& neigbours, const cell::neigbouring_positions& pos, std::map<cell::x_y_position, cell::Cell, cell::x_y_comp>& populated_cells) {
 
 	//upper_left
 	if (populated_cells.find({ pos.upper_left.x_position, pos.upper_left.y_position }) != populated_cells.end()) {		
@@ -83,7 +83,7 @@ void calculate_neighbour_count(int& neigbours, const cell::neigbouring_positions
 }
 
 
-void set_cell_neighbourcount(cell::Cell& cell, std::vector<std::vector<cell::Cell>>& cells, const cell::neigbouring_positions& neighbour_pos, std::map<cell::x_y_position, cell::Cell, cell::x_y_comp>& populated_cells) {
+void cell_ctr::Cell_Controller::set_cell_neighbourcount(cell::Cell& cell, std::vector<std::vector<cell::Cell>>& cells, const cell::neigbouring_positions& neighbour_pos, std::map<cell::x_y_position, cell::Cell, cell::x_y_comp>& populated_cells) {
 
 	int neighbours_amount = 0;	
 
@@ -93,7 +93,7 @@ void set_cell_neighbourcount(cell::Cell& cell, std::vector<std::vector<cell::Cel
 	
 }
 
-std::map<cell::x_y_position, cell::Cell, cell::x_y_comp> get_populated_cells(std::vector<std::vector<cell::Cell>>& cells) {
+std::map<cell::x_y_position, cell::Cell, cell::x_y_comp> cell_ctr::Cell_Controller::get_populated_cells(std::vector<std::vector<cell::Cell>>& cells) {
 
 	std::map<cell::x_y_position, cell::Cell, cell::x_y_comp> populated_cells;
 

@@ -3,10 +3,10 @@
 const unsigned int window_size_x = 1000;
 const unsigned int window_size_y = 800;
 
-App::App() : window(sf::VideoMode(window_size_x, window_size_y), "Conway's Game of Life", sf::Style::Close), set_start(false) {}
+app::App::App() : window(sf::VideoMode(window_size_x, window_size_y), "Conway's Game of Life", sf::Style::Close), set_start(false) {}
 
 
-void App::window_close(sf::Event event, sf::RenderWindow& window) {
+void app::App::window_close(sf::Event event, sf::RenderWindow& window) {
 
 	if (event.type == sf::Event::Closed) {
 		window.close();
@@ -14,7 +14,7 @@ void App::window_close(sf::Event event, sf::RenderWindow& window) {
 
 }
 
-void App::mouse_click(sf::Event event, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map) {
+void app::App::mouse_click(sf::Event event, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map) {
 
 	if (event.type == sf::Event::MouseButtonPressed) {
 		if (event.mouseButton.button == sf::Mouse::Left) {
@@ -27,7 +27,7 @@ void App::mouse_click(sf::Event event, cell_ctr::Cell_Controller& cell_ctr, tmap
 	}
 }
 
-void App::key_press(sf::Event event, Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map) {	
+void app::App::key_press(sf::Event event, game_ctr::Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map) {
 
 	if (event.type == sf::Event::KeyReleased) {
 		if (event.key.scancode == sf::Keyboard::Scan::Q) {
@@ -46,7 +46,7 @@ void App::key_press(sf::Event event, Game_Controller& game_ctr, cell_ctr::Cell_C
 		
 }
 
-void App::poll_events(Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map) {	
+void app::App::poll_events(game_ctr::Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map) {
 
 	sf::Event event;
 
@@ -62,13 +62,13 @@ void App::poll_events(Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell
 
 }
 
-void App::game_loop(Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map) {
+void app::App::game_loop(game_ctr::Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map) {
 	if (this->set_start) {
 		game_ctr.start_game(map.get_vector_map(), cell_ctr);
 	}
 }
 
-void App::display_screen(tmap::Tilemap& map) {
+void app::App::display_screen(tmap::Tilemap& map) {
 	map.draw_map(window);
 	window.display();
 }

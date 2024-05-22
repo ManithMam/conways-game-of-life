@@ -11,13 +11,13 @@
 
 int main() {
 
-	App app;
+	app::App app;
 
 	tmap::Tilemap map(app.window);
 	
 	cell_ctr::Cell_Controller cell_controller;	
 
-	Game_Controller game_ctr;		
+	game_ctr::Game_Controller game_ctr;		
 
 	while (app.window.isOpen())	{			
 
