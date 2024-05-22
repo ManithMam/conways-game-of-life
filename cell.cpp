@@ -35,7 +35,7 @@ cell::Cell::Cell() : num_of_neigbours(0), populated(false), unpopulated_color(wh
 
 void cell::Cell::set_populated() {
 	this->populated = true;	
-	this->setFillColor(populated_color);
+	this->setFillColor(populated_color);	
 }
 
 void cell::Cell::set_unpopulated() {
