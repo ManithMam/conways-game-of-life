@@ -9,7 +9,7 @@
 #include "app.hpp"
 
 
-int main() {
+int main() {	
 
 	app::App app;
 
@@ -17,13 +17,15 @@ int main() {
 
 	cell_ctr::Cell_Controller cell_controller;
 
-	game_ctr::Game_Controller game_ctr;
+	game_ctr::Game_Controller game_controller;
+
+	app.print_controls();
 
 	while (app.window.isOpen()) {
 
-		app.poll_events(game_ctr, cell_controller, map);
+		app.poll_events(game_controller, cell_controller, map);
 
-		app.game_loop(game_ctr, cell_controller, map);
+		app.game_loop(game_controller, cell_controller, map);
 
 		app.display_screen(map);
 
