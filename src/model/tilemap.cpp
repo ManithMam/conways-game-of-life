@@ -1,5 +1,4 @@
 #include "tilemap.hpp"
-#include <iostream>
 
 void tmap::Tilemap::load_map_vector(int window_size_x, int window_size_y) {
 	
