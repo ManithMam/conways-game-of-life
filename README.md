@@ -1,5 +1,5 @@
 # About the project
-![image]![image](https://github.com/ManithMam/conways-game-of-life/assets/100299120/0a631bef-c957-4009-b5fd-d2bb91de5148)
+![image](https://github.com/ManithMam/conways-game-of-life/assets/100299120/0a631bef-c957-4009-b5fd-d2bb91de5148)
 
 This is a clone of Conway's Game of Life built in C++ with SFML.
 
