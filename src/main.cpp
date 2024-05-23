@@ -11,9 +11,9 @@
 
 int main() {	
 
-	app::App app;
+	app::App app;	
 
-	tmap::Tilemap map(app.window);
+	tmap::Tilemap map(app.window);	
 
 	cell_ctr::Cell_Controller cell_controller;
 

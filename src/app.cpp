@@ -5,7 +5,11 @@ namespace app_constants {
 	const unsigned int window_size_y = 800;
 }
 
-app::App::App() : window(sf::VideoMode(app_constants::window_size_x, app_constants::window_size_y), "Conway's Game of Life", sf::Style::Close), set_start(false) {}
+app::App::App() : window(sf::VideoMode(app_constants::window_size_x, app_constants::window_size_y), "Conway's Game of Life", sf::Style::Close), set_start(false) {
+
+	window.setFramerateLimit(60);
+
+}
 
 
 void app::App::window_close(sf::Event event, sf::RenderWindow& window) {
