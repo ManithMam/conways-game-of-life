@@ -1,8 +1,6 @@
 #pragma once
 
 #include "cell_controller.hpp"
-#include <windows.h>
-#include<dos.h>
 
 namespace game_ctr {
 	class Game_Controller {
@@ -18,10 +16,10 @@ namespace game_ctr {
 	public:
 
 		void start_game(std::vector<std::vector<cell::Cell>>& cell_vec_2d, cell_ctr::Cell_Controller& cell_controller);
+		void reset_cycle();
 
 		Game_Controller();
 	};
 }
-
 
 

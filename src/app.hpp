@@ -2,7 +2,7 @@
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include "game_controller.hpp"
+#include "controller/game_controller.hpp"
 
 namespace app {
 	class App {
@@ -21,8 +21,8 @@ namespace app {
 		void poll_events(game_ctr::Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map);
 		void game_loop(game_ctr::Game_Controller& game_ctr, cell_ctr::Cell_Controller& cell_ctr, tmap::Tilemap& map);
 		void display_screen(tmap::Tilemap& map);
+		void print_controls();
 
 		App();
 	};
 }
-

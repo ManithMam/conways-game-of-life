@@ -1,9 +1,7 @@
 #include "tilemap.hpp"
 
-
 void tmap::Tilemap::load_map_vector(int window_size_x, int window_size_y) {
-	std::cout << "load vector" << '\n';
-
+	
 	cell::x_y_position cell_position;	
 
 	int cell_pos_x = 0;	
