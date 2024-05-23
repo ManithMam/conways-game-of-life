@@ -11,7 +11,7 @@ This is a clone of Conway's Game of Life built in C++ with SFML.
 
 ### Getting started
 
-Currently this project can only opened with Visual Studio.
+Currently this project can only be opened with Visual Studio.
 
 ### Controls
 
