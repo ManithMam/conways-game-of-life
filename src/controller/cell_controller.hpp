@@ -1,7 +1,7 @@
 #pragma once
 
-#include "tilemap.hpp"
-#include "cell.hpp"
+#include "../model/tilemap.hpp"
+#include "../model/cell.hpp"
 #include <unordered_map>
 #include <map>
 
@@ -20,4 +20,3 @@ namespace cell_ctr {
 		void check_neighbours(std::vector<std::vector<cell::Cell>>& cells);
 	};
 }
-
