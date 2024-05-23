@@ -62,3 +62,7 @@ void game_ctr::Game_Controller::start_game(std::vector<std::vector<cell::Cell>>&
 
 }
 
+void game_ctr::Game_Controller::reset_cycle() {
+	this->cycle = 0;
+}
+
