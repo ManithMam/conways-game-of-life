@@ -40,7 +40,7 @@ namespace cell {
 	class Cell : public sf::RectangleShape {
 
 	private:
-
+		int cell_size;
 		bool populated;
 		sf::Color unpopulated_color;
 		sf::Color populated_color;
@@ -59,13 +59,13 @@ namespace cell {
 		void set_num_of_neighbours(int neigbours);
 		void switch_state();
 
-		x_y_position get_position();
-		bool get_populated();
+		x_y_position get_position() const;
+		bool get_populated() const;
 
-		screen_boundary get_screen_boundary_x();
-		screen_boundary get_screen_boundary_y();
+		screen_boundary get_screen_boundary_x() const;
+		screen_boundary get_screen_boundary_y() const;
 		neigbouring_positions get_neighbour_pos() const;
-		int get_num_of_neighbours();
+		int get_num_of_neighbours() const;
 
 		Cell(x_y_position cell_position_, int window_x_pos, int window_y_pos);
 		Cell();
