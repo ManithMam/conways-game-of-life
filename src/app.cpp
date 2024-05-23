@@ -1,9 +1,11 @@
 #include "app.hpp"
 
-const unsigned int window_size_x = 1000;
-const unsigned int window_size_y = 800;
+namespace app_constants {
+	const unsigned int window_size_x = 1000;
+	const unsigned int window_size_y = 800;
+}
 
-app::App::App() : window(sf::VideoMode(window_size_x, window_size_y), "Conway's Game of Life", sf::Style::Close), set_start(false) {}
+app::App::App() : window(sf::VideoMode(app_constants::window_size_x, app_constants::window_size_y), "Conway's Game of Life", sf::Style::Close), set_start(false) {}
 
 
 void app::App::window_close(sf::Event event, sf::RenderWindow& window) {
@@ -31,16 +33,16 @@ void app::App::key_press(sf::Event event, game_ctr::Game_Controller& game_ctr, c
 
 	if (event.type == sf::Event::KeyReleased) {
 		if (event.key.scancode == sf::Keyboard::Scan::Q) {
-			std::cout << "Q!" << '\n';
-			this->set_start = true;
+			std::cout << "Start simulation!" << '\n';
+			this->set_start = true;			
 		}
 	}
 
 	if (event.type == sf::Event::KeyReleased) {
 		if (event.key.scancode == sf::Keyboard::Scan::W) {
-			std::cout << "W!" << '\n';
+			std::cout << "Stop simulation!" << '\n';
 			this->set_start = false;
-
+			game_ctr.reset_cycle();
 		}
 	}
 
@@ -71,4 +73,12 @@ void app::App::game_loop(game_ctr::Game_Controller& game_ctr, cell_ctr::Cell_Con
 void app::App::display_screen(tmap::Tilemap& map) {
 	map.draw_map(window);
 	window.display();
+}
+
+void app::App::print_controls() {
+	std::cout << "Controls" << '\n';
+	std::cout << "------------------" << '\n';
+	std::cout << "Use your mouse to populate the cells by clicking on empty cells." << '\n';
+	std::cout << "Start simulation: Q" << '\n';
+	std::cout << "Stop simulation: W" << '\n';
 }
